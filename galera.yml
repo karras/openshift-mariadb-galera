@@ -14,8 +14,8 @@ spec:
   selector:
     app: mysql
 ---
-apiVersion: apps/v1alpha1
-kind: PetSet
+apiVersion: apps/v1beta1
+kind: StatefulSet
 metadata:
   name: mysql
 spec:
@@ -26,8 +26,7 @@ spec:
       labels:
         app: mysql
       annotations:
-        pod.alpha.kubernetes.io/initialized: "true"
-        pod.alpha.kubernetes.io/init-containers: '[
+        pod.beta.kubernetes.io/init-containers: '[
             {
                 "name": "install",
                 "image": "adfinissygroup/galera-init:v001",
